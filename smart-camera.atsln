@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "smart-camera", "smart-camera\smart-camera.cproj", "{809F5B2D-CFF4-45C5-BFB3-E80599EB94F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{809F5B2D-CFF4-45C5-BFB3-E80599EB94F4}.Debug|AVR.ActiveCfg = Debug|AVR
+		{809F5B2D-CFF4-45C5-BFB3-E80599EB94F4}.Debug|AVR.Build.0 = Debug|AVR
+		{809F5B2D-CFF4-45C5-BFB3-E80599EB94F4}.Release|AVR.ActiveCfg = Release|AVR
+		{809F5B2D-CFF4-45C5-BFB3-E80599EB94F4}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
