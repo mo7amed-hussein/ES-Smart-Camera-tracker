@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Atmel Studio Solution File, Format Version 11.00
 Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "smart-camera", "smart-camera\smart-camera.cproj", "{809F5B2D-CFF4-45C5-BFB3-E80599EB94F4}"
 EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "drivers", "drivers\drivers.cproj", "{2DF59E5D-A7E3-4575-947A-48D722DA4E35}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "uart-test", "drivers-tests\uart-test\uart-test.cproj", "{2805A5A3-6E5B-41AB-B3FD-4C1D1153E671}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR
@@ -13,6 +17,14 @@ Global
 		{809F5B2D-CFF4-45C5-BFB3-E80599EB94F4}.Debug|AVR.Build.0 = Debug|AVR
 		{809F5B2D-CFF4-45C5-BFB3-E80599EB94F4}.Release|AVR.ActiveCfg = Release|AVR
 		{809F5B2D-CFF4-45C5-BFB3-E80599EB94F4}.Release|AVR.Build.0 = Release|AVR
+		{2DF59E5D-A7E3-4575-947A-48D722DA4E35}.Debug|AVR.ActiveCfg = Debug|AVR
+		{2DF59E5D-A7E3-4575-947A-48D722DA4E35}.Debug|AVR.Build.0 = Debug|AVR
+		{2DF59E5D-A7E3-4575-947A-48D722DA4E35}.Release|AVR.ActiveCfg = Release|AVR
+		{2DF59E5D-A7E3-4575-947A-48D722DA4E35}.Release|AVR.Build.0 = Release|AVR
+		{2805A5A3-6E5B-41AB-B3FD-4C1D1153E671}.Debug|AVR.ActiveCfg = Debug|AVR
+		{2805A5A3-6E5B-41AB-B3FD-4C1D1153E671}.Debug|AVR.Build.0 = Debug|AVR
+		{2805A5A3-6E5B-41AB-B3FD-4C1D1153E671}.Release|AVR.ActiveCfg = Release|AVR
+		{2805A5A3-6E5B-41AB-B3FD-4C1D1153E671}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
