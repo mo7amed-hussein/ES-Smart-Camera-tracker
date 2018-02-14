@@ -4,19 +4,17 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>6.2</ProjectVersion>
     <ToolchainName>com.Atmel.AVRGCC8.C</ToolchainName>
-    <ProjectGuid>{2df59e5d-a7e3-4575-947a-48d722da4e35}</ProjectGuid>
+    <ProjectGuid>{fe324e83-ad1a-46bf-be28-aa672c1eef96}</ProjectGuid>
     <avrdevice>ATmega328P</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
-    <OutputType>StaticLibrary</OutputType>
+    <OutputType>Executable</OutputType>
     <Language>C</Language>
-    <OutputFileName>lib$(MSBuildProjectName)</OutputFileName>
-    <OutputFileExtension>.a</OutputFileExtension>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
-    <AvrGccProjectExtensions>
-    </AvrGccProjectExtensions>
-    <AssemblyName>drivers</AssemblyName>
-    <Name>drivers</Name>
-    <RootNamespace>drivers</RootNamespace>
+    <AssemblyName>servo-test</AssemblyName>
+    <Name>servo-test</Name>
+    <RootNamespace>servo-test</RootNamespace>
     <ToolchainFlavour>winAvr</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>
@@ -86,19 +84,9 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="drivers.c">
+    <Compile Include="servo-test.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="uart\usart0.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="uart\usart0.h">
-      <SubType>compile</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="servo" />
-    <Folder Include="uart" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>
