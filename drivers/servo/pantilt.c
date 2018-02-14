@@ -85,3 +85,14 @@ void moveRight()
 	}
 	movePanToAngle(currentPanAngle);
 }
+
+void moveLeft()
+{
+	currentPanAngle++;
+	if(currentPanAngle >180)
+	{
+		currentPanAngle=180;
+	}
+	movePanToAngle(currentPanAngle);
+	
+}
