@@ -34,5 +34,7 @@ void moveLeft();
 
 void moveRight();
 
+void movePanToAngle(uint8_t angle);
+void moveTiltToAngle(uint8_t angle);
 
 #endif /* PANTILT_H_ */
