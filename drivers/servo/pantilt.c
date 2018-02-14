@@ -43,3 +43,15 @@ void moveTiltToAngle(uint8_t angle)
 		_delay_us(20000-requiredDelay);
 	}	
 }
+
+void resetPan()
+{
+	currentPanAngle=0;
+	movePanToAngle(0);
+}
+
+void resetTilt()
+{
+	currentTiltAngle=0;
+	moveTiltToAngle(0);
+}
