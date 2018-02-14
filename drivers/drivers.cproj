@@ -86,6 +86,9 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="servo\pantilt.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="servo\servo.c">
       <SubType>compile</SubType>
     </Compile>
