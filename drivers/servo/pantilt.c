@@ -55,3 +55,13 @@ void resetTilt()
 	currentTiltAngle=0;
 	moveTiltToAngle(0);
 }
+
+void moveUp()
+{
+	currentTiltAngle--;
+	if(currentTiltAngle<0)
+	{
+		currentTiltAngle=0;
+	}
+	moveTiltToAngle(currentTiltAngle);
+}
