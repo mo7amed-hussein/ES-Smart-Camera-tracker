@@ -17,3 +17,17 @@ void initServo()
 	
 }
 
+uint16_t claculateDelay(uint8_t angle)
+{
+	//validate angle to be between 0 and 180
+	if(angle <0 )
+	{
+		angle = 0;
+	}
+	else if(angle >180)
+	{
+		
+		angle =180;
+	}
+	return (SERVO_BASE_DELAY+(SERVO_STEP*angle));
+}
