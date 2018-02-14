@@ -65,3 +65,13 @@ void moveUp()
 	}
 	moveTiltToAngle(currentTiltAngle);
 }
+
+void moveDown()
+{
+	currentTiltAngle++;
+	if(currentTiltAngle>180)
+	{
+		currentTiltAngle=180;
+	}
+	moveTiltToAngle(currentTiltAngle);
+}
