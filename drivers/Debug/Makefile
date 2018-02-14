@@ -33,12 +33,14 @@ LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
+../servo \
 ../uart
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../drivers.c \
+../servo/servo.c \
+../uart/drivers.c \
 ../uart/usart0.c
 
 
@@ -49,19 +51,23 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-drivers.o \
+servo/servo.o \
+uart/drivers.o \
 uart/usart0.o
 
 OBJS_AS_ARGS +=  \
-drivers.o \
+servo/servo.o \
+uart/drivers.o \
 uart/usart0.o
 
 C_DEPS +=  \
-drivers.d \
+servo/servo.d \
+uart/drivers.d \
 uart/usart0.d
 
 C_DEPS_AS_ARGS +=  \
-drivers.d \
+servo/servo.d \
+uart/drivers.d \
 uart/usart0.d
 
 OUTPUT_FILE_PATH +=libdrivers.a
@@ -83,7 +89,9 @@ LINKER_SCRIPT_DEP+=
 
 
 
-./%.o: .././%.c
+
+
+servo/%.o: ../servo/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.3.3
 	$(QUOTE)E:\WinAVR-20100110\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

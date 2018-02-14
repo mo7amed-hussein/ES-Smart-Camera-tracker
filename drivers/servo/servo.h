@@ -8,13 +8,15 @@
 
 #ifndef SERVO_H_
 #define SERVO_H_
+#include "util/delay.h"
+#include <avr/io.h>
 
-#define SERVO_STEP 8.66
+#define SERVO_STEP 8.62
 #define SERVO_BASE_DELAY 750
-#define SERVO_STABILITY_VALUE  20
+#define SERVO_STABILITY_VALUE  50
 #define SERVO_DDR DDRD
 #define SERVO_PORT PORTD
-#define SERVO_PIN PORTD7
+#define SERVO_PIN PD7
 
 void initServo();
 
