@@ -75,3 +75,13 @@ void moveDown()
 	}
 	moveTiltToAngle(currentTiltAngle);
 }
+
+void moveRight()
+{
+	currentPanAngle--;
+	if(currentPanAngle <0)
+	{
+		currentPanAngle=0;
+	}
+	movePanToAngle(currentPanAngle);
+}
