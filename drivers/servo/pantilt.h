@@ -14,8 +14,8 @@
 #define  PAN_PIN PD7
 #define TILT_PIN PD6
 
-#define PAN_STEP 1
-#define TILT_STEP 1
+#define PAN_STEP 5
+#define TILT_STEP 5
 //current angles
 uint8_t currentPanAngle = 0;
 uint8_t currentTiltAngle =0;
