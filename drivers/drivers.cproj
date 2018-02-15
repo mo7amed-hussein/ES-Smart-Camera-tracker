@@ -86,6 +86,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="bluetooth\bluetooth.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="bluetooth\bluetooth.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="drivers.c">
       <SubType>compile</SubType>
     </Compile>
@@ -115,6 +121,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bluetooth" />
     <Folder Include="servo" />
     <Folder Include="uart" />
   </ItemGroup>

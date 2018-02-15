@@ -33,12 +33,14 @@ LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
+../bluetooth \
 ../servo \
 ../uart
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../bluetooth/bluetooth.c \
 ../drivers.c \
 ../servo/pantilt.c \
 ../servo/servo.c \
@@ -53,6 +55,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+bluetooth/bluetooth.o \
 drivers.o \
 servo/pantilt.o \
 servo/servo.o \
@@ -60,6 +63,7 @@ uart/softuart.o \
 uart/usart0.o
 
 OBJS_AS_ARGS +=  \
+bluetooth/bluetooth.o \
 drivers.o \
 servo/pantilt.o \
 servo/servo.o \
@@ -67,6 +71,7 @@ uart/softuart.o \
 uart/usart0.o
 
 C_DEPS +=  \
+bluetooth/bluetooth.d \
 drivers.d \
 servo/pantilt.d \
 servo/servo.d \
@@ -74,6 +79,7 @@ uart/softuart.d \
 uart/usart0.d
 
 C_DEPS_AS_ARGS +=  \
+bluetooth/bluetooth.d \
 drivers.d \
 servo/pantilt.d \
 servo/servo.d \
@@ -104,6 +110,15 @@ LINKER_SCRIPT_DEP+=
 
 
 
+
+
+
+bluetooth/%.o: ../bluetooth/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 4.3.3
+	$(QUOTE)E:\WinAVR-20100110\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
 
 ./%.o: .././%.c
 	@echo Building file: $<

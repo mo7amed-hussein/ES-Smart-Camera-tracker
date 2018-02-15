@@ -11,6 +11,8 @@ Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "servo-test", "drivers-tests
 EndProject
 Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "soft-uart-test", "drivers-tests\soft-uart-test\soft-uart-test.cproj", "{939F4467-D982-4C23-9DF5-CBE57E94D060}"
 EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "bluetooth-test", "drivers-tests\bluetooth-test\bluetooth-test.cproj", "{0F71B500-6CD3-4E0C-B680-C9E2D7774A06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR
@@ -37,6 +39,10 @@ Global
 		{939F4467-D982-4C23-9DF5-CBE57E94D060}.Debug|AVR.Build.0 = Debug|AVR
 		{939F4467-D982-4C23-9DF5-CBE57E94D060}.Release|AVR.ActiveCfg = Release|AVR
 		{939F4467-D982-4C23-9DF5-CBE57E94D060}.Release|AVR.Build.0 = Release|AVR
+		{0F71B500-6CD3-4E0C-B680-C9E2D7774A06}.Debug|AVR.ActiveCfg = Debug|AVR
+		{0F71B500-6CD3-4E0C-B680-C9E2D7774A06}.Debug|AVR.Build.0 = Debug|AVR
+		{0F71B500-6CD3-4E0C-B680-C9E2D7774A06}.Release|AVR.ActiveCfg = Release|AVR
+		{0F71B500-6CD3-4E0C-B680-C9E2D7774A06}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
