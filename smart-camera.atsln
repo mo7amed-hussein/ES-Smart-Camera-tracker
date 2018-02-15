@@ -9,6 +9,8 @@ Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "uart-test", "drivers-tests\
 EndProject
 Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "servo-test", "drivers-tests\servo-test\servo-test.cproj", "{FE324E83-AD1A-46BF-BE28-AA672C1EEF96}"
 EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "soft-uart-test", "drivers-tests\soft-uart-test\soft-uart-test.cproj", "{939F4467-D982-4C23-9DF5-CBE57E94D060}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR
@@ -31,6 +33,10 @@ Global
 		{FE324E83-AD1A-46BF-BE28-AA672C1EEF96}.Debug|AVR.Build.0 = Debug|AVR
 		{FE324E83-AD1A-46BF-BE28-AA672C1EEF96}.Release|AVR.ActiveCfg = Release|AVR
 		{FE324E83-AD1A-46BF-BE28-AA672C1EEF96}.Release|AVR.Build.0 = Release|AVR
+		{939F4467-D982-4C23-9DF5-CBE57E94D060}.Debug|AVR.ActiveCfg = Debug|AVR
+		{939F4467-D982-4C23-9DF5-CBE57E94D060}.Debug|AVR.Build.0 = Debug|AVR
+		{939F4467-D982-4C23-9DF5-CBE57E94D060}.Release|AVR.ActiveCfg = Release|AVR
+		{939F4467-D982-4C23-9DF5-CBE57E94D060}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

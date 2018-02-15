@@ -32,18 +32,12 @@ LIB_DEP:=
 LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
-SUBDIRS :=  \
-../servo \
-../uart
+SUBDIRS := 
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../drivers.c \
-../servo/pantilt.c \
-../servo/servo.c \
-../uart/softuart.c \
-../uart/usart0.c
+../smart-camera.c
 
 
 PREPROCESSING_SRCS += 
@@ -53,36 +47,20 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-drivers.o \
-servo/pantilt.o \
-servo/servo.o \
-uart/softuart.o \
-uart/usart0.o
+smart-camera.o
 
 OBJS_AS_ARGS +=  \
-drivers.o \
-servo/pantilt.o \
-servo/servo.o \
-uart/softuart.o \
-uart/usart0.o
+smart-camera.o
 
 C_DEPS +=  \
-drivers.d \
-servo/pantilt.d \
-servo/servo.d \
-uart/softuart.d \
-uart/usart0.d
+smart-camera.d
 
 C_DEPS_AS_ARGS +=  \
-drivers.d \
-servo/pantilt.d \
-servo/servo.d \
-uart/softuart.d \
-uart/usart0.d
+smart-camera.d
 
-OUTPUT_FILE_PATH +=libdrivers.a
+OUTPUT_FILE_PATH +=smart-camera.elf
 
-OUTPUT_FILE_PATH_AS_ARGS +=libdrivers.a
+OUTPUT_FILE_PATH_AS_ARGS +=smart-camera.elf
 
 ADDITIONAL_DEPENDENCIES:=
 
@@ -97,29 +75,7 @@ LINKER_SCRIPT_DEP+=
 
 
 
-
-
-
-
-
-
-
-
 ./%.o: .././%.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 4.3.3
-	$(QUOTE)E:\WinAVR-20100110\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-servo/%.o: ../servo/%.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 4.3.3
-	$(QUOTE)E:\WinAVR-20100110\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-uart/%.o: ../uart/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.3.3
 	$(QUOTE)E:\WinAVR-20100110\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -148,14 +104,19 @@ endif
 # All Target
 all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 
-
-$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP)
+$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
-	@echo Invoking: AVR/GNU Archiver : 4.3.3
-	$(QUOTE)E:\WinAVR-20100110\bin\avr-ar.exe$(QUOTE) -r  -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) 
+	@echo Invoking: AVR/GNU Linker : 4.3.3
+	$(QUOTE)E:\WinAVR-20100110\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="smart-camera.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mmcu=atmega328p  
 	@echo Finished building target: $@
+	"E:\WinAVR-20100110\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "smart-camera.elf" "smart-camera.hex"
+	"E:\WinAVR-20100110\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "smart-camera.elf" "smart-camera.eep" || exit 0
+	"E:\WinAVR-20100110\bin\avr-objdump.exe" -h -S "smart-camera.elf" > "smart-camera.lss"
+	"E:\WinAVR-20100110\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "smart-camera.elf" "smart-camera.srec"
+	"E:\WinAVR-20100110\bin\avr-size.exe" "smart-camera.elf"
 	
 	
+
 
 
 
@@ -164,5 +125,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP)
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "libdrivers.elf" "libdrivers.a" "libdrivers.hex" "libdrivers.lss" "libdrivers.eep" "libdrivers.map" "libdrivers.srec" "libdrivers.usersignatures"
+	rm -rf "smart-camera.elf" "smart-camera.a" "smart-camera.hex" "smart-camera.lss" "smart-camera.eep" "smart-camera.map" "smart-camera.srec" "smart-camera.usersignatures"
 	

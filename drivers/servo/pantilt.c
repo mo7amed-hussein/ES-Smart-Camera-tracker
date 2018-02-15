@@ -4,7 +4,7 @@
  * Created: 2/14/2018 9:43:21 PM
  *  Author: mohamed
  */ 
-
+#define F_CPU 16000000UL
 #include "pantilt.h"
 
 void initPanTilt()
